@@ -1,0 +1,9 @@
+name: Release
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  u2u-workflow:
+    uses: u2u-eco/u2sec-ci-templates/.github/workflows/default-template-prod.yaml@v1
+    secrets: inherit

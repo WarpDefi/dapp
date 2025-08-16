@@ -1,0 +1,36 @@
+compatibility_date = "2022-05-20"
+kv_namespaces = [
+  {binding = "POOLS", id = "d248be13ba044c50aaebdb348a30e45d", preview_id = "d248be13ba044c50aaebdb348a30e45d"},
+]
+
+main = "src/index.ts"
+name = "routing-dev"
+node_compat = true
+[triggers]
+crons = ["0 0 * * *"]
+
+[env.production]
+kv_namespaces = [
+  {binding = "POOLS", id = "d248be13ba044c50aaebdb348a30e45d"},
+]
+name = "routing"
+
+[env.production.vars]
+ETH_NODE = "https://eth.llamarpc.com"
+GOERLI_NODE="https://eth-goerli.public.blastapi.io"
+BSC_NODE="https://bsc-dataseed.binance.org"
+BSC_TESTNET_NODE="https://data-seed-prebsc-2-s1.binance.org:8545"
+POLYGON_ZKEVM_NODE="https://f2562de09abc5efbd21eefa083ff5326.zkevm-rpc.com/"
+ARBITRUM_ONE_NODE="https://arb1.arbitrum.io/rpc"
+NODE_REAL_SUBGRAPH_API_KEY="https://subgraph-amm-testnet.grofidex.io/subgraphs/name/amm/grofidex-v1"
+
+[env.production.triggers]
+crons = ["*/30 * * * *"]
+
+# The necessary secrets are:
+# - ETH_NODE
+# - GOERLI_NODE
+# - BSC_NODE
+# - BSC_TESTNET_NODE
+# - NODE_REAL_SUBGRAPH_API_KEY
+# Run `echo <VALUE> | wrangler secret put <NAME>` for each of these

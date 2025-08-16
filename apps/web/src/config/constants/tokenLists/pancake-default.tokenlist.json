@@ -1,0 +1,102 @@
+{
+  "name": "U2UDex Menu",
+  "timestamp": "2024-03-26T08:31:14.197Z",
+  "version": {
+    "major": 24,
+    "minor": 30,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "",
+  "keywords": ["U2USwap", "default"],
+  "tokens": [
+    {
+      "name": "USDT Token on U2U",
+      "address": "0xdfae88f8610a038afcdf47a5bc77c0963c65087c",
+      "symbol": "USDT",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xdfae88f8610a038afcdf47a5bc77c0963c65087c.png"
+    },
+    {
+      "name": "Wrapped Cardano",
+      "address": "0xbeb74c0c2cc994c8fad7ba91fae15b5b748cd707",
+      "symbol": "WADA",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xbeb74c0c2cc994c8fad7ba91fae15b5b748cd707.png"
+    },
+    {
+      "name": "Wrapped Binance Smart Chain",
+      "address": "0x7bd3dc0e0e1e1ccce1657a18cbe32f13f9fc9376",
+      "symbol": "WBNB",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0x7bd3dc0e0e1e1ccce1657a18cbe32f13f9fc9376.png"
+    },
+    {
+      "name": "BTC Token on U2U",
+      "address": "0x4ebbe24182e9c14e1d2e02ab9459190f39c43b6f",
+      "symbol": "WBTC",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0x4ebbe24182e9c14e1d2e02ab9459190f39c43b6f.png"
+    },
+    {
+      "name": "Wrapped Doge Coin",
+      "address": "0xf25394ebb6d132d21bce902f759f592954e898cd",
+      "symbol": "WDOGE",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xf25394ebb6d132d21bce902f759f592954e898cd.png"
+    },
+    {
+      "name": "ETH Token on U2U",
+      "address": "0x94504f356a267f3a128c2e6387281bccdbd821a0",
+      "symbol": "WETH",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0x94504f356a267f3a128c2e6387281bccdbd821a0.png"
+    },
+    {
+      "name": "Wrapped Near",
+      "address": "0xfd7ea8beabf2999dcf7f97a694b7fda60ac4bf20",
+      "symbol": "WNEAR",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xfd7ea8beabf2999dcf7f97a694b7fda60ac4bf20.png"
+    },
+    {
+      "name": "Wrapped Solana",
+      "address": "0xa4447a108e92b8c36de0fb310d43f95c54fc81e2",
+      "symbol": "WSOL",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xa4447a108e92b8c36de0fb310d43f95c54fc81e2.png"
+    },
+    {
+      "address": "0x5b4aabd65701eeda8afe6e341cb23b52f2ef7e56",
+      "chainId": 2484,
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0x5b4aabd65701eeda8afe6e341cb23b52f2ef7e56.png",
+      "name": "Wrapped TRX",
+      "symbol": "WTRX"
+    },
+    {
+      "name": "Wrapped U2U",
+      "address": "0xc5f15624b4256c1206e4bb93f2ccc9163a75b703",
+      "symbol": "WU2U",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xc5f15624b4256c1206e4bb93f2ccc9163a75b703.png"
+    },
+    {
+      "name": "Wrapped XRP",
+      "address": "0xcedb8ee7c0e21bdd78f46e334a33ed17189131d5",
+      "symbol": "WXRP",
+      "decimals": 18,
+      "chainId": 2484,
+      "logoURI": "https://raw.githubusercontent.com/u2u-eco/default-token-list/master/logos/network/2484/0xcedb8ee7c0e21bdd78f46e334a33ed17189131d5.png"
+    }
+  ]
+}

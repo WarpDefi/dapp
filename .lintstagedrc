@@ -1,0 +1,9 @@
+{
+  "**/*.{js,jsx,ts,tsx}, !public/charting_library/*.{js,ts}": [
+    "eslint",
+    "prettier --write"
+  ],
+  "**/*.json": [
+    "prettier --write"
+  ]
+}

@@ -1,0 +1,26 @@
+compatibility_date = "2022-05-20"
+kv_namespaces = [
+  {binding = "FARMS", id = "c34e077faaf248b990e69aab5f7950f6", preview_id = "c34e077faaf248b990e69aab5f7950f6"},
+]
+main = "src/index.ts"
+name = "amm"
+node_compat = true
+[vars]
+FORCE_UPDATE_KEY = "force"
+KV_CACHE = false
+[triggers]
+crons = []
+
+[env.production]
+kv_namespaces = [
+  {binding = "FARMS", id = "4ac3b54c6e17404a95ccd3f8fcbcf3ac"},
+]
+name = "amm-prod"
+node_compat = true
+
+[env.production.vars]
+KV_CACHE = true
+U2U_TESTNET_NODE = "https://rpc-nebulas-testnet.uniultra.xyz"
+
+[env.production.triggers]
+crons = ["0 0 * * *", "*/1 * * * *"]

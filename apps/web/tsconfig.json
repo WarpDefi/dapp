@@ -1,0 +1,26 @@
+{
+  "extends": "@pancakeswap/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "target": "ES2020",
+    "types": ["vitest/globals"],
+    "paths": {
+      "*": ["./src/*"],
+      "@pancakeswap/uikit": ["../../packages/uikit/src/index.ts"],
+      "@pancakeswap/uikit/*": ["../../packages/uikit/src/*"]
+    }
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/.*/",
+    "**/config/abi/types/",
+    "**/abis/types/*.ts",
+    "**/public/charting_library/",
+    "../../apps/web/src/backup"
+  ],
+  "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"]
+}

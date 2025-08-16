@@ -1,0 +1,12 @@
+# This workflow will build and push a new container image to Amazon ECR
+#
+
+name: Staging
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  u2u-workflow:
+    uses: u2u-eco/u2sec-ci-templates/.github/workflows/default-template-dev.yaml@v1
+    secrets: inherit
