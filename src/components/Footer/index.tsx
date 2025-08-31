@@ -179,7 +179,7 @@ export default function Footer() {
             <a className="text-muted-foreground hover:text-primary transition-colors">Apply for Job</a>
           </div>
           <div className="flex flex-col gap-2">
-            <h5 className="font-semibold text-lg mb-2">Pango AI</h5>
+            <h5 className="font-semibold text-lg mb-2">WarpDefi AI</h5>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
               onClick={() => window.dispatchEvent(new Event('open-chat'))}
