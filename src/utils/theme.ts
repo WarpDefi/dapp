@@ -1,7 +1,7 @@
 const white = '#FFFFFF';
 const gray = '#A0A0A0';
 const black = '#000000';
-const philippineYellow = '#FFC800'; //primary
+const philippineYellow = '#0c51f3'; //primary
 const mustardYellow = '#0c51f3';
 const green1 = '#27AE60';
 
@@ -34,7 +34,7 @@ export const theme = {
   text12: '#E84142',
   text13: '#A3A3A3',
   text14: '#8C8D93',
-  text15: '#FFC800',
+  text15: '#0c51f3',
 
   // backgrounds / greys
   bg1: '#212429',
@@ -79,8 +79,8 @@ export const theme = {
   green1: '#27AE60',
   green2: '#18C145',
   green2Gradient: ' rgba(24, 193, 69, 0.3)',
-  yellow1: '#FFE270',
-  yellow3: '#FFC800',
+  yellow1: '#0c51f3',
+  yellow3: '#0c51f3',
   orange1: '#E6E9EC',
   blue1: '#2172E5',
 
