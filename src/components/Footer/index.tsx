@@ -80,35 +80,35 @@ export default function Footer() {
             <h5 className="font-semibold text-lg mb-2">PNG Token</h5>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://coinmarketcap.com/currencies/pangolin/"
+              href="https://coinmarketcap.com/currencies/WarpDefi/"
               target="_blank"
             >
               CoinMarketCap
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://www.coingecko.com/en/coins/pangolin"
+              href="https://www.coingecko.com/en/coins/WarpDefi"
               target="_blank"
             >
               CoinGecko
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://exchange.coinbase.com/trade/PNG-USD"
+              href="https://exchange.coinbase.com"
               target="_blank"
             >
               Coinbase
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://www.gate.io/trade/PNG_USDT"
+              href="https://www.gate.io/"
               target="_blank"
             >
               Gate.io
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://www.mexc.com/exchange/PNG_USDT"
+              href="https://www.mexc.com/"
               target="_blank"
             >
               MEXC
@@ -118,35 +118,35 @@ export default function Footer() {
             <h5 className="font-semibold text-lg mb-2">Analytics</h5>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://www.geckoterminal.com/avax/pangolin/pools"
+              href="https://www.geckoterminal.com/ink/WarpDefi/pools"
               target="_blank"
             >
               Gecko Terminal
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://tokenterminal.com/terminal/projects/pangolin"
+              href="https://tokenterminal.com/terminal/projects/WarpDefi"
               target="_blank"
             >
               Token Terminal
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://defillama.com/protocol/pangolin"
+              href="https://defillama.com/protocol/WarpDefi"
               target="_blank"
             >
               DefiLlama
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://dexscreener.com/avalanche/pangolin"
+              href="https://dexscreener.com/avalanche/WarpDefi"
               target="_blank"
             >
               DEX Screener
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://dappradar.com/dapp/pangolin-exchange/"
+              href="https://dappradar.com/"
               target="_blank"
             >
               DappRadar
@@ -156,14 +156,14 @@ export default function Footer() {
             <h5 className="font-semibold text-lg mb-2">Reach us</h5>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://t.me/pangolinv3"
+              href="https://t.me/WarpPortal"
               target="_blank"
             >
               Telegram
             </a>
             <a
               className="text-muted-foreground hover:text-primary transition-colors"
-              href="https://discord.gg/a6JJybnMhY"
+              href="https://discord.gg/"
               target="_blank"
             >
               Discord
@@ -202,7 +202,7 @@ export default function Footer() {
         <div className="flex items-center justify-center gap-4 py-6">
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://twitter.com/pangolindex"
+            href="https://x.com/Warp_Defi"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -218,7 +218,7 @@ export default function Footer() {
           </a>
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://pangolindex.medium.com"
+            href="https://medium.com"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -234,7 +234,7 @@ export default function Footer() {
           </a>
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://t.me/pangolinv3"
+            href="https://github.com/WarpDefi"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -244,7 +244,7 @@ export default function Footer() {
           </a>
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://discord.gg/a6JJybnMhY"
+            href="https://discord.gg/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -260,7 +260,7 @@ export default function Footer() {
           </a>
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://www.youtube.com/channel/UClJJTG4FRL4z3AOf-ZWXZLw"
+            href="https://www.youtube.com/channel/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -280,7 +280,7 @@ export default function Footer() {
           </a>
           <a
             className="text-muted-foreground hover:text-primary transition-colors"
-            href="https://github.com/pangolindex"
+            href="https://github.com/WarpDefi"
             target="_blank"
             rel="noopener noreferrer"
           >
