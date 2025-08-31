@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react'; 
+import React, { useContext, useMemo } from 'react';
 import { Text, TextProps } from 'rebass';
 import styled, { css, DefaultTheme, ThemeProvider as StyledComponentsThemeProvider, ThemeContext } from 'styled-components';
 import { useIsDarkMode } from '../state/user/hooks';
@@ -29,7 +29,8 @@ const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } 
 ) as any;
 
 const white = '#FFFFFF';
-const brandDarkBlue = '#00154F'; // from your logo background
+const brandDarkBlue = '#00154F'; // background dark blue
+const brandBlue = '#0c51f3';     // primary blue
 
 export function colors(darkMode: boolean): Colors {
   return {
@@ -48,7 +49,7 @@ export function colors(darkMode: boolean): Colors {
     textMenu: darkMode ? '#FFFFFF' : '#565A69',
 
     // backgrounds / branding blues
-    bg1: darkMode ? '#00154F' : '#FFFFFF',  // main background
+    bg1: darkMode ? brandDarkBlue : '#FFFFFF',  // main background
     bg2: darkMode ? '#021C61' : '#F7F8FA',
     bg3: darkMode ? '#08256F' : '#EDEEF2',
     bg4: darkMode ? '#0F3180' : '#CED0D9',
@@ -59,19 +60,19 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     // primary colors (buttons)
-    primary1: darkMode ? '#FFFFFF' : '#FFFFFF', // button background → white
-    primary2: darkMode ? '#3680E7' : '#34b3c3',
-    primary3: darkMode ? '#4D8FEA' : '#34b3c3',
-    primary4: darkMode ? '#376bad' : '#34b3c3',
-    primary5: darkMode ? '#153d6f' : '#34b3c3',
-    primary6: darkMode ? '#2172E5' : '#FFFFFF',
-    primary7: darkMode ? '#2172E5' : '#00D5FF',
+    primary1: brandBlue,    // button background
+    primary2: '#103c9c',    // hover state
+    primary3: '#4D8FEA',
+    primary4: '#376bad',
+    primary5: '#153d6f',
+    primary6: brandBlue,
+    primary7: brandBlue,
 
     // color text
-    primaryText1: darkMode ? '#2172E5' : '#2172E5', // blue text inside white buttons
+    primaryText1: darkMode ? brandBlue : brandBlue, // blue text inside white buttons
 
     // secondary colors
-    secondary1: darkMode ? '#2172E5' : '#ff007a',
+    secondary1: brandBlue,
     secondary2: darkMode ? '#17000b' : '#F6DDE8',
     secondary3: darkMode ? '#17000b' : '#FDEAF1',
 
@@ -79,9 +80,9 @@ export function colors(darkMode: boolean): Colors {
     red1: '#FF6871',
     red2: '#F82D3A',
     green1: '#57cb7a',
-    yellow1: '#FFFFFF', // replaced yellows → white
-    yellow2: '#FFFFFF',
-    blue1: '#2172E5',
+    yellow1: brandBlue,  // replaced with blue
+    yellow2: brandBlue,  // replaced with blue
+    blue1: brandBlue,
 
     avaxRed: '#E84142',
   };
