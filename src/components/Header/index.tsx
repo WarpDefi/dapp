@@ -1,5 +1,5 @@
-import LogoWhite from '@/assets/logo-white.svg';
-import LogoDark from '@/assets/logo-dark.svg';
+import LogoWhite from '@/assets/logo-white.png';
+import LogoDark from '@/assets/logo-dark.png';
 import { DarkModeToggle } from '@/components/DarkModeToggle';
 import { Icons } from '@/components/icons';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';

@@ -91,7 +91,7 @@
     "deposited": "Deposited",
     "withdrawDepositedLiquidity": "Withdraw deposited liquidity",
     "depositedPglLiquidity": "Deposited PGL liquidity:",
-    "whenYouWithdrawWarning": "When you withdraw, your {{ symbol }} is claimed and your Pangolin Liquidity tokens, PGL, are returned to you. You will no longer earn {{ symbol }} rewards on this liquidity. Your original token liquidity will remain in its liquidity pool.",
+    "whenYouWithdrawWarning": "When you withdraw, your {{ symbol }} is claimed and your WarpDefi Liquidity tokens, PGL, are returned to you. You will no longer earn {{ symbol }} rewards on this liquidity. Your original token liquidity will remain in its liquidity pool.",
     "whenYouWithdrawSingleSideWarning": "When you withdraw, your {{ symbol }} is claimed and your {{ pngSymbol}} is returned to you. You will no longer earn {{ symbol }} rewards on this {{ pngSymbol}}.",
     "withdrawAndClaim": "Withdraw & Claim",
     "withdrewStakingToken": "Withdrew {{ symbol }}!",
@@ -254,7 +254,7 @@
     "minutes": "minutes"
   },
   "vote": {
-    "earnedPng": "Earned {{ pngSymbol }} tokens represent voting shares in Pangolin governance.",
+    "earnedPng": "Earned {{ pngSymbol }} tokens represent voting shares in WarpDefi governance.",
     "canEitherVote": "You can either vote on each proposal yourself or delegate your votes to a third party.",
     "delegateVotes": "Delegate Votes",
     "selfDelegate": "Self Delegate",
@@ -329,20 +329,20 @@
     "youHave": "You have ",
     "pngAvailableClaim": " {{ pngSymbol }} available to claim",
     "loading": "Loading",
-    "welcomeToTeamPangolin": "Welcome to team Pangolin",
+    "welcomeToTeamWarpDefi": "Welcome to team WarpDefi",
     "claim": "Claim "
   },
   "earnPage": {
-    "pangolinLiquidityMining": "Pangolin liquidity mining",
-    "pangolinLiquidityStaking": "Pangolin {{ pngSymbol }} staking",
-    "depositPangolinLiquidity": "Deposit your Pangolin Liquidity Provider PGL tokens to receive {{ pngSymbol }}, the Pangolin protocol governance token.",
-    "depositPangolinStaking": "Deposit and stake your {{ pngSymbol }} tokens to earn more tokens.",
+    "pangolinLiquidityMining": "WarpDefi liquidity mining",
+    "pangolinLiquidityStaking": "WarpDefi {{ pngSymbol }} staking",
+    "depositWarpDefiLiquidity": "Deposit your WarpDefi Liquidity Provider PGL tokens to receive {{ pngSymbol }}, the WarpDefi protocol governance token.",
+    "depositWarpDefiStaking": "Deposit and stake your {{ pngSymbol }} tokens to earn more tokens.",
     "currentOpportunities": "Current opportunities",
     "readMoreAboutPng": "Read more about {{ pngSymbol }}",
     "getInsuranceCoverage": "Get cover on InsurAce.io",
     "getCoverNexusMutual": "Get cover on Nexus Mutual",
     "importantUpdate": "IMPORTANT UPDATE",
-    "pangolinGovernanceProposalResult": "As a result of Pangolin governance proposal 1, Pangolin is changing staking contracts! After approximately 08:59 UTC on 4/19, all staking rewards will be distributed to the new staking contracts. Before the switch, all rewards will still be distributed to the old contracts. To avoid interruptions to yield farming rewards, you need to unstake your liquidity from the old contracts and restake in the new contracts. You do not need to remove liquidity from your pools or alter your positions.",
+    "pangolinGovernanceProposalResult": "As a result of WarpDefi governance proposal 1, WarpDefi is changing staking contracts! After approximately 08:59 UTC on 4/19, all staking rewards will be distributed to the new staking contracts. Before the switch, all rewards will still be distributed to the old contracts. To avoid interruptions to yield farming rewards, you need to unstake your liquidity from the old contracts and restake in the new contracts. You do not need to remove liquidity from your pools or alter your positions.",
     "oldPngPools": "Old {{ pngSymbol }} pools",
     "newPngPools": "New {{ pngSymbol }} pools",
     "participatingPools": "Participating pools",
@@ -352,7 +352,7 @@
     "pngStaking": "{{ pngSymbol }} Staking",
     "totalStaked": "Total Staked",
     "poolRate": "Pool Rate",
-    "step1": "Step 1. Get Pangolin Liquidity tokens (PGL)",
+    "step1": "Step 1. Get WarpDefi Liquidity tokens (PGL)",
     "pglTokenRequired": "PGL tokens are required. Once you've added liquidity to the {{ poolHandle }} pool you can stake your liquidity tokens on this page.",
     "addPoolLiquidity": "Add {{ poolHandle }} liquidity",
     "liquidityDeposits": "Your liquidity deposits",
@@ -369,7 +369,7 @@
     "stakingTokensAvailable": "{{ symbol }} tokens available",
     "getToken": "Get {{ symbol }}",
     "migrateTitle": "Migrate your staked PGL",
-    "migrateDescription": "Pangolin has changed tokonomics. You will need to migrate your staked PGL to new contract",
+    "migrateDescription": "WarpDefi has changed tokonomics. You will need to migrate your staked PGL to new contract",
     "migrate": "Migrate"
   },
   "pool": {
@@ -398,8 +398,8 @@
     "successWithdraw": "Your liquidity removed from farm, And accrued rewards claimed!",
     "importDescription1": "With import function you can look for pools that doesn’t appear in 'Your Pools' section.",
     "importDescription2": "Just choose the underlying coins that was in your pool.",
-    "createPairDescription": "With create function you can create a new pair. Just search the coins that you want to create a pair for and system will either finds the pool if exists on Pangolin or creates a brand new one if its not.",
-    "addLiquidityDescription": "With the add liquidity function you add liquidity to a pair. Just search for the coins you want to add liquidity to and the system will find the pool if it exists in Pangolin or create a new one if it doesn't.",
+    "createPairDescription": "With create function you can create a new pair. Just search the coins that you want to create a pair for and system will either finds the pool if exists on WarpDefi or creates a brand new one if its not.",
+    "addLiquidityDescription": "With the add liquidity function you add liquidity to a pair. Just search for the coins you want to add liquidity to and the system will find the pool if it exists in WarpDefi or create a new one if it doesn't.",
     "createStorageContract": "On Hedera, all smart contracts need to pay fees for utilising space on the ledger. These are storage fees and auto renewal fees. You'll need to create a Storage contract in order to farm. The storage will be free, but in future you will be required to pay auto renewal fees. These are about 2 cents. So we recommend keeping $1 on HBAR in your wallet at all times to ensure you don't experience any issues.",
     "supplying": "Supplying",
     "associating": "Associating",
@@ -510,7 +510,7 @@
   },
   "buyPage": {
     "buyAvaxInfo": "Buy AVAX with fiat from our partner Wyre.",
-    "privacyInfo": "Pangolin does not store your purchase history or any personal data.",
+    "privacyInfo": "WarpDefi does not store your purchase history or any personal data.",
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
@@ -519,8 +519,8 @@
   "votePage": {
     "unlockVotes": "Unlock Votes",
     "updateDelegation": "Update Delegation",
-    "pangolinGovernance": "Pangolin Governance",
-    "earnedPngTokens": "{{ pngSymbol }} tokens represent voting shares in Pangolin governance. You can vote on each proposal yourself or delegate your votes to a third party.",
+    "pangolinGovernance": "WarpDefi Governance",
+    "earnedPngTokens": "{{ pngSymbol }} tokens represent voting shares in WarpDefi governance. You can vote on each proposal yourself or delegate your votes to a third party.",
     "eligibleToVote": "To be eligible to vote, you must hold {{ pngSymbol }} in your wallet and delegate it at the start of voting. After voting has begun, you may pool or spend your {{ pngSymbol }}.",
     "governanceVotes": "Governance votes are decided by simple majority. There is no quorum threshold.",
     "proposals": "Proposals",
@@ -590,7 +590,7 @@
     "add": "ADD",
     "remove": "REMOVE",
     "startMigratingNow": "START MIGRATING NOW",
-    "startMigratingNowDescription": "Below you will find all the Farms you will need to migrate to Pangolin's V2 Contracts",
+    "startMigratingNowDescription": "Below you will find all the Farms you will need to migrate to WarpDefi's V2 Contracts",
     "seeMore": "SEE MORE",
     "migrateWithEase": "MIGRATE WITH EASE",
     "migrateWithDescription": "We have designed an elegant wizard, which will help guide you through the process of migrating your Farms",
@@ -599,7 +599,7 @@
     "alreadyEarned": "already earned",
     "migrateNow": "MIGRATE NOW",
     "learn": "LEARN",
-    "moveYourTokensToNewContracts": "Migrate your Farms to Pangolin V2",
+    "moveYourTokensToNewContracts": "Migrate your Farms to WarpDefi V2",
     "readyToMigrate": "Ready to migrate",
     "apr": "APR:",
     "totalValueLocked": "Total Value Locked",
@@ -622,7 +622,7 @@
     "back": "Back",
     "availableToUnstake": "Available to unstake: ",
     "submittingTransaction": "Submitting transaction",
-    "moveYourTokensToNewContractsDescription": "As part of Pangolin's roll out to new improved contracts, you will need to migrate your Farms. If you need any help or guidance, please click on the “Learn” button.",
+    "moveYourTokensToNewContractsDescription": "As part of WarpDefi's roll out to new improved contracts, you will need to migrate your Farms. If you need any help or guidance, please click on the “Learn” button.",
     "migrateModalHeading": "Migrate {{ current }} of {{ total }} Farms"
   },
   "dashboardPage": {
@@ -911,7 +911,7 @@
   },
   "buy": {
     "redirectCoinbasePay": "You will be redirected to Coinbase Pay shortly, if not please click below button",
-    "useCoinbasePay": "To use Coinbase Pay first you need to connect your wallet to Pangolin dApp. Please proceed by clicking button below."
+    "useCoinbasePay": "To use Coinbase Pay first you need to connect your wallet to WarpDefi dApp. Please proceed by clicking button below."
   },
   "common": {
     "loading": "Loading",
