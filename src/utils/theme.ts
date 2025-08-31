@@ -2,7 +2,7 @@ const white = '#FFFFFF';
 const gray = '#A0A0A0';
 const black = '#000000';
 const philippineYellow = '#FFC800'; //primary
-const mustardYellow = '#E1AA00';
+const mustardYellow = '#0c51f3';
 const green1 = '#27AE60';
 
 const eerieBlack = '#1C1C1C';

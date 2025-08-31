@@ -15,7 +15,7 @@ const Loading = () => {
     <Svg
       fill="none"
       viewBox="0 0 66 66"
-      style={{ color: '#e1aa00', overflow: 'visible' }}
+      style={{ color: '#0c51f3', overflow: 'visible' }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
