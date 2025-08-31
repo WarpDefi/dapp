@@ -1,0 +1,271 @@
+import { Currency, CurrencyAmount, ElixirPool, ElixirTrade, FeeAmount, Pair, Token, Trade } from '@pangolindex/sdk'
+import flatMap from 'lodash.flatmap'
+import { useEffect, useMemo, useState } from 'react'
+
+import { BASES_TO_CHECK_TRADES_AGAINST, CUSTOM_BASES } from '../constants'
+import { PairState, usePairs } from '../data/Reserves'
+import { wrappedCurrency } from '../utils/wrappedCurrency'
+
+import { useActiveWeb3React, usePoolsHook, usePoolsHookForSwap } from './index'
+//import { useChainId } from '@/provider'
+import { PoolState } from './types'
+;
+import { useChainId } from '@/provider'
+
+function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
+  const { chainId } = useActiveWeb3React()
+
+  const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []
+
+  const [tokenA, tokenB] = chainId
+    ? [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)]
+    : [undefined, undefined]
+
+  const basePairs: [Token, Token][] = useMemo(
+    () =>
+      flatMap(bases, (base): [Token, Token][] => bases.map(otherBase => [base, otherBase])).filter(
+        ([t0, t1]) => t0.address !== t1.address
+      ),
+    [bases]
+  )
+
+  const allPairCombinations: [Token, Token][] = useMemo(
+    () =>
+      tokenA && tokenB
+        ? [
+            // the direct pair
+            [tokenA, tokenB],
+            // token A against all bases
+            ...bases.map((base): [Token, Token] => [tokenA, base]),
+            // token B against all bases
+            ...bases.map((base): [Token, Token] => [tokenB, base]),
+            // each base against all bases
+            ...basePairs
+          ]
+            .filter((tokens): tokens is [Token, Token] => Boolean(tokens[0] && tokens[1]))
+            .filter(([t0, t1]) => t0.address !== t1.address)
+            .filter(([tokenA, tokenB]) => {
+              if (!chainId) return true
+              const customBases = CUSTOM_BASES[chainId]
+              if (!customBases) return true
+
+              const customBasesA: Token[] | undefined = customBases[tokenA.address]
+              const customBasesB: Token[] | undefined = customBases[tokenB.address]
+
+              if (!customBasesA && !customBasesB) return true
+
+              if (customBasesA && !customBasesA.find(base => tokenB.equals(base))) return false
+              if (customBasesB && !customBasesB.find(base => tokenA.equals(base))) return false
+
+              return true
+            })
+        : [],
+    [tokenA, tokenB, bases, basePairs, chainId]
+  )
+
+  const allPairs = usePairs(allPairCombinations)
+
+  // only pass along valid pairs, non-duplicated pairs
+  return useMemo(
+    () =>
+      Object.values(
+        allPairs
+          // filter out invalid pairs
+          .filter((result): result is [PairState.EXISTS, Pair] => Boolean(result[0] === PairState.EXISTS && result[1]))
+          // filter out duplicated pairs
+          .reduce<{ [pairAddress: string]: Pair }>((memo, [, curr]) => {
+            memo[curr.liquidityToken.address] = memo[curr.liquidityToken.address] ?? curr
+            return memo
+          }, {})
+      ),
+    [allPairs]
+  )
+}
+
+/**
+ * Returns the best trade for the exact amount of tokens in to the given token out
+ */
+export function useTradeExactIn(currencyAmountIn?: CurrencyAmount, currencyOut?: Currency, refreshInterval?: number): {trade: Trade | null; isLoading: boolean} {
+  const allowedPairs = useAllCommonPairs(currencyAmountIn?.currency, currencyOut)
+  return useMemo(() => {
+    if (currencyAmountIn && currencyOut && allowedPairs.length > 0) {
+      return { trade: Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: 3, maxNumResults: 1 })[0] ?? null, isLoading: false }
+    }
+    return { trade: null, isLoading: true };
+  }, [allowedPairs, currencyAmountIn, currencyOut, refreshInterval])
+}
+
+/**
+ * Returns the best trade for the token in to the exact amount of token out
+ */
+export function useTradeExactOut(currencyIn?: Currency, currencyAmountOut?: CurrencyAmount, refreshInterval?: number): {trade: Trade | null; isLoading: boolean} {
+  const allowedPairs = useAllCommonPairs(currencyIn, currencyAmountOut?.currency)
+
+  return useMemo(() => {
+    if (currencyIn && currencyAmountOut && allowedPairs.length > 0) {
+      return {trade: Trade.bestTradeExactOut(allowedPairs, currencyIn, currencyAmountOut, { maxHops: 3, maxNumResults: 1 })[0] ??null, isLoading: false}
+    }
+    return { trade: null, isLoading: true };
+  }, [allowedPairs, currencyIn, currencyAmountOut, refreshInterval])
+}
+
+function useAllElixirCommonPools(
+  currencyA?: Currency,
+  currencyB?: Currency,
+): {
+  pools: ElixirPool[];
+  isLoading: boolean;
+} {
+  const chainId = useChainId();
+
+  const usePools = usePoolsHookForSwap[chainId];
+
+  const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []; // eslint-disable-line react-hooks/exhaustive-deps
+
+  const [tokenA, tokenB] = chainId
+    ? [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)]
+    : [undefined, undefined];
+
+  const basePairs: [Token, Token][] = useMemo(
+    () =>
+      bases
+        .flatMap((base): [Token, Token][] => bases.map((otherBase) => [base, otherBase]))
+        // though redundant with the first filter below, that expression runs more often, so this is probably worthwhile
+        .filter(([t0, t1]) => !t0.equals(t1)),
+    [bases],
+  );
+
+  const allCurrencyCombinations = useMemo(
+    () =>
+      tokenA && tokenB
+        ? [
+            // the direct pair
+            [tokenA, tokenB] as [Token, Token],
+            // token A against all bases
+            ...bases.map((base): [Token, Token] => [tokenA, base]),
+            // token B against all bases
+            ...bases.map((base): [Token, Token] => [tokenB, base]),
+            // each base against all bases
+            ...basePairs,
+          ]
+            // filter out invalid pairs comprised of the same asset (e.g. WETH<>WETH)
+            .filter(([t0, t1]) => !t0.equals(t1))
+            // filter out duplicate pairs
+            .filter(([t0, t1], i, otherPairs) => {
+              // find the first index in the array at which there are the same 2 tokens as the current
+              const firstIndexInOtherPairs = otherPairs.findIndex(([t0Other, t1Other]) => {
+                return (t0.equals(t0Other) && t1.equals(t1Other)) || (t0.equals(t1Other) && t1.equals(t0Other));
+              });
+              // only accept the first occurrence of the same 2 tokens
+              return firstIndexInOtherPairs === i;
+            })
+            // optionally filter out some pairs for tokens with custom bases defined
+            .filter(([tokenA, tokenB]) => {
+              if (!chainId) return true;
+              const customBases = CUSTOM_BASES[chainId];
+
+              const customBasesA: Token[] | undefined = customBases?.[tokenA.address];
+              const customBasesB: Token[] | undefined = customBases?.[tokenB.address];
+
+              if (!customBasesA && !customBasesB) return true;
+
+              if (customBasesA && !customBasesA.find((base) => tokenB.equals(base))) return false;
+              if (customBasesB && !customBasesB.find((base) => tokenA.equals(base))) return false;
+
+              return true;
+            })
+        : [],
+    [tokenA, tokenB, bases, basePairs, chainId],
+  );
+
+  const allCurrencyCombinationsWithAllFees: [Token, Token, FeeAmount][] = useMemo(
+    () =>
+      allCurrencyCombinations.reduce<[Token, Token, FeeAmount][]>((list, [tokenA, tokenB]) => {
+        return list.concat([
+          [tokenA, tokenB, FeeAmount.LOWEST],
+          [tokenA, tokenB, FeeAmount.LOW],
+          [tokenA, tokenB, FeeAmount.MEDIUM],
+          [tokenA, tokenB, FeeAmount.HIGH],
+        ]);
+      }, []),
+    [allCurrencyCombinations, chainId],
+  );
+
+  const pools = usePools(allCurrencyCombinationsWithAllFees);
+
+  return useMemo(() => {
+    return {
+      pools: pools
+        .filter((tuple): tuple is [PoolState.EXISTS, ElixirPool] => {
+          return tuple[0] === PoolState.EXISTS && tuple[1] !== null;
+        })
+        .map(([, pool]) => pool),
+      isLoading: pools.some(([state]) => state === PoolState.LOADING),
+    };
+  }, [pools]);
+}
+
+/**
+ * Returns the best trade for the exact amount of tokens in to the given token out
+ */
+export function useElixirTradeExactIn(
+  currencyAmountIn?: CurrencyAmount,
+  currencyOut?: Currency,
+  refreshInterval?: number
+): { trade: ElixirTrade | null; isLoading: boolean } {
+  const [tradeData, setTradeData] = useState<{ trade: ElixirTrade | null; isLoading: boolean }>({
+    trade: null,
+    isLoading: true,
+  });
+
+  const { pools: allowedPools, isLoading } = useAllElixirCommonPools(currencyAmountIn?.currency, currencyOut);
+
+  useEffect(() => {
+    const getBestTradeExactIn = async () => {
+      if (currencyAmountIn && currencyOut && allowedPools.length > 0 && !isLoading) {
+        const trades = await ElixirTrade.bestTradeExactIn(allowedPools, currencyAmountIn, currencyOut, {
+          maxHops: 3,
+          maxNumResults: 1,
+        });
+
+        const finalTrade = trades?.[0];
+        setTradeData({ trade: finalTrade, isLoading: isLoading });
+      }
+    };
+    getBestTradeExactIn();
+  }, [allowedPools, isLoading, currencyAmountIn, currencyOut, refreshInterval]);
+  return tradeData;
+}
+
+/**
+ * Returns the best trade for the token in to the exact amount of token out
+ */
+export function useElixirTradeExactOut(
+  currencyIn?: Currency,
+  currencyAmountOut?: CurrencyAmount,
+  refreshInterval?: number
+): { trade: ElixirTrade | null; isLoading: boolean } {
+  const [tradeData, setTradeData] = useState<{ trade: ElixirTrade | null; isLoading: boolean }>({
+    trade: null,
+    isLoading: true,
+  });
+
+  const { pools: allowedPools, isLoading } = useAllElixirCommonPools(currencyIn, currencyAmountOut?.currency);
+
+  useEffect(() => {
+    const getBestTradeExactOut = async () => {
+      if (currencyIn && currencyAmountOut && allowedPools.length > 0 && !isLoading) {
+        const trades = await ElixirTrade.bestTradeExactOut(allowedPools, currencyIn, currencyAmountOut, {
+          maxHops: 3,
+          maxNumResults: 1,
+        });
+
+        const finalTrade = trades?.[0];
+        setTradeData({ trade: finalTrade, isLoading: isLoading });
+      }
+    };
+    getBestTradeExactOut();
+  }, [allowedPools, isLoading, currencyIn, currencyAmountOut, refreshInterval]);
+  return tradeData;
+}
+

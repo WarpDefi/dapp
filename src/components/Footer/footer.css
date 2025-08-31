@@ -1,0 +1,12 @@
+.pangolin-ai-fixed {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 10000;
+}
+
+@media (max-width: 768px) {
+  .pangolin-ai-fixed {
+    display: none !important;
+  }
+}

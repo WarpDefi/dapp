@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Pair",
+  "sourceName": "contracts/helpers/Pair.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207d20854ed457c2dc487b511eac2415def5b68715c8f1c99c42c7cb341217578a64736f6c63430006060033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207d20854ed457c2dc487b511eac2415def5b68715c8f1c99c42c7cb341217578a64736f6c63430006060033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

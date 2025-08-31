@@ -1,0 +1,61 @@
+.neon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .neon-wrapper.small {
+    transform: scale(0.8) translateY(-6px);
+    padding: 0;
+    margin: 0;
+  }
+  
+  .neon-title {
+    color: #d47705;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .neon-container {
+    margin-top: 2px;
+    padding: 3px 10px;
+    border: 1px solid #ffa739;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background-color: #fcf3ec;
+  }
+  
+  .token-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  /* Bonus Wrapper için Flex hizalama */
+  .bonus-flex-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+    }
+    20%, 24%, 55% {
+      opacity: 0.2;
+      text-shadow: none;
+    }
+  }
+  
