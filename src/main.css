@@ -4,73 +4,76 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
-    --background-soft: 0 0% 96%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 33 100% 67%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
+    /* Light Mode (Dark Blue Theme) */
+    --background: 220 100% 12%;        /* Dark Blue */
+    --foreground: 0 0% 100%;           /* White text */
+    --background-soft: 220 100% 16%;   /* Softer dark blue */
+    --card: 220 100% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 100% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 220 90% 50%;            /* Blue Buttons */
+    --primary-foreground: 0 0% 100%;   /* Button text white */
+    --secondary: 220 100% 16%;
+    --secondary-foreground: 0 0% 100%;
 
+    --muted: 220 100% 16%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 220 100% 16%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 100% 20%;
+    --input: 220 100% 20%;
+    --ring: 220 100% 50%;
+
+    /* Success Colors */
     --success-50: 105, 50%, 95%;
     --success-200: 105, 49%, 60%;
     --success-300: 105, 48%, 52%;
     --success-400: 105, 44%, 36%;
     --success-500: 105, 44%, 32%;
 
+    /* Information Colors */
     --information-50: 240, 89%, 96%;
     --information-200: 237, 88%, 70%;
     --information-300: 237, 88%, 64%;
     --information-400: 237, 50%, 45%;
     --information-500: 237, 51%, 39%;
 
+    /* Warning Colors */
     --warning-50: 28, 76%, 97%;
     --warning-200: 29, 71%, 71%;
     --warning-300: 29, 72%, 65%;
     --warning-400: 29, 38%, 46%;
     --warning-500: 30, 38%, 40%;
 
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-    --information: 210 70% 60%;
-    --warning: 45 70% 60%;
     --destructive: 0 70% 60%;
     --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 20 14.3% 4.1%;
-    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 220 6% 10%;
-    --foreground: 60 9.1% 97.8%;
-    --background-soft: 220 5% 13%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 33 100% 67%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --information: 210 70% 60%;
-    --warning: 45 70% 60%;
+    /* Dark Mode (Deeper Blue) */
+    --background: 220 100% 8%;         /* Deeper Dark Blue */
+    --foreground: 0 0% 100%;
+    --background-soft: 220 100% 12%;
+    --card: 220 100% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 100% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 220 90% 50%;            /* Bright Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 100% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 100% 12%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 220 100% 12%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 100% 20%;
+    --input: 220 100% 20%;
+    --ring: 220 100% 50%;
+
     --destructive: 0 70% 60%;
     --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 35.5 91.7% 32.9%;
   }
 }
 
@@ -152,4 +155,28 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* === BUTTONS === */
+  button, .btn {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s;
+  }
+
+  button:hover, .btn:hover {
+    background-color: hsl(220, 90%, 40%); /* Darker Blue */
+  }
+
+  button:focus, .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(220, 90%, 60%);
+  }
+
+  button:active, .btn:active {
+    transform: scale(0.98);
+  }
 }
+
