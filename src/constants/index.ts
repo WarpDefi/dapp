@@ -42,6 +42,7 @@ export const TOKEN_HIDE: { [key: string]: string[] } = {
 export const PROVIDER_MAPPING: { [chainId in ChainId]: (provider: any) => any } = {
   [ChainId.FUJI]: CommonEVMProvider,
   [ChainId.AVALANCHE]: CommonEVMProvider,
+  [ChainId.INKCHAIN_SEPOLIA]: CommonEVMProvider,
   [ChainId.WAGMI]: CommonEVMProvider,
   [ChainId.COSTON]: CommonEVMProvider,
   [ChainId.SONGBIRD]: CommonEVMProvider,
@@ -91,6 +92,7 @@ export const PANGOLIN_V3_REWARDER_ADDRESS = '0xbA19AF51023b02AEC7e0c81499a2a2654
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
   [ChainId.AVALANCHE]: '0xE54Ca86531e17Ef3616d22Ca28b0D458b6C89106',
+  [ChainId.INKCHAIN_SEPOLIA]: '0x599cdBb1Ac705A86077345C52e69064De3b02de8',
   [ChainId.ARBITRUM]: '0x0000000000000000000000000000000000000000',
   [ChainId.AURORA]: '0x0000000000000000000000000000000000000000',
   [ChainId.BSC]: '0x0000000000000000000000000000000000000000',
@@ -123,6 +125,7 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
 export const ROUTER_DAAS_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: CHAINS[ChainId.FUJI]?.contracts?.router_daas ?? ZERO_ADDRESS,
   [ChainId.AVALANCHE]: CHAINS[ChainId.AVALANCHE]?.contracts?.router_daas ?? ZERO_ADDRESS,
+  [ChainId.INKCHAIN_SEPOLIA]: CHAINS[ChainId.INKCHAIN_SEPOLIA]?.contracts?.router_daas ?? ZERO_ADDRESS,
   [ChainId.WAGMI]: CHAINS[ChainId.WAGMI]?.contracts?.router_daas ?? ZERO_ADDRESS,
   [ChainId.COSTON]: CHAINS[ChainId.COSTON]?.contracts?.router_daas ?? ZERO_ADDRESS,
   [ChainId.SONGBIRD]: CHAINS[ChainId.SONGBIRD]?.contracts?.router_daas ?? ZERO_ADDRESS,
@@ -155,6 +158,7 @@ export const ROUTER_DAAS_ADDRESS: { [chainId in ChainId]: string } = {
 export const FACTORY_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.FUJI]: '0x0000000000000000000000000000000000000000',
   [ChainId.AVALANCHE]: '0xefa94DE7a4656D787667C749f7E1223D71E9FD88',
+  [ChainId.INKCHAIN_SEPOLIA]: '0xeBdFb0147b916CD0b79e10c754e9B081c8713A55',
   [ChainId.ARBITRUM]: '0x0000000000000000000000000000000000000000',
   [ChainId.AURORA]: '0x0000000000000000000000000000000000000000',
   [ChainId.BSC]: '0x0000000000000000000000000000000000000000',
@@ -192,6 +196,7 @@ type ChainTokenList = {
 export const UNDEFINED: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 0),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, ZERO_ADDRESS, 0),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -225,6 +230,7 @@ export const CNR: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, '0x695c1d3Be6be6BcE84989701c60f1F180508B5C5', 18, 'CNR', 'Canary'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x8D88e48465F30Acfb8daC0b3E35c9D6D7d36abaf', 18, 'CNR', 'Canary'),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
   [ChainId.CELO]: new Token(ChainId.CELO, ZERO_ADDRESS, 0),
@@ -257,6 +263,7 @@ export const DAIe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'DAI.e', 'Dai Stablecoin'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70', 18, 'DAI.e', 'Dai Stablecoin'),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
   [ChainId.CELO]: new Token(ChainId.CELO, ZERO_ADDRESS, 0),
@@ -289,6 +296,7 @@ export const USDCN: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 6, 'USDC.e', 'USD Coin'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E', 6, 'USDC', 'USD Coin'),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
   [ChainId.CELO]: new Token(ChainId.CELO, ZERO_ADDRESS, 0),
@@ -320,6 +328,7 @@ export const USDCN: { [chainId in ChainId]: Token } = {
 export const USDCe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 6, 'USDC.e', 'USD Coin'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664', 6, 'USDC.e', 'USD Coin'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -352,6 +361,7 @@ export const USDCe: { [chainId in ChainId]: Token } = {
 export const USDT: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 6, 'USDT.e', 'Tether USD'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7', 6, 'USDt', 'Tether USD'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -384,6 +394,7 @@ export const USDT: { [chainId in ChainId]: Token } = {
 export const USDTe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 6, 'USDT.e', 'Tether USD'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xc7198437980c041c805A1EDcbA50c1Ce5db95118', 6, 'USDT.e', 'Tether USD'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -416,6 +427,7 @@ export const USDTe: { [chainId in ChainId]: Token } = {
 export const XAVA: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'XAVA', 'Avalaunch Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4', 18, 'XAVA', 'Avalaunch Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -448,6 +460,7 @@ export const XAVA: { [chainId in ChainId]: Token } = {
 export const AMPL: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 9, 'AMPL', 'Ampleforth secured by Meter Passport'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x027dbcA046ca156De9622cD1e2D907d375e53aa7', 9, 'AMPL', 'Ampleforth secured by Meter Passport'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -480,6 +493,7 @@ export const AMPL: { [chainId in ChainId]: Token } = {
 export const QI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'QI', 'Benqi Finance: QI Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5', 18, 'QI', 'Benqi Finance: QI Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -512,6 +526,7 @@ export const QI: { [chainId in ChainId]: Token } = {
 export const LINKe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'LINK.e', 'Avalanche Bridge: Chainlink Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x5947BB275c521040051D82396192181b413227A3', 18, 'LINK.e', 'Avalanche Bridge: Chainlink Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -544,6 +559,7 @@ export const LINKe: { [chainId in ChainId]: Token } = {
 export const YAK: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'YAK', 'Yield Yak: Yak Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x59414b3089ce2AF0010e7523Dea7E2b35d776ec7', 18, 'YAK', 'Yield Yak: Yak Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -576,6 +592,7 @@ export const YAK: { [chainId in ChainId]: Token } = {
 export const WBTCe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 8, 'WBTC.e', 'Yield Yak: Yak Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x50b7545627a5162F82A992c33b87aDc75187B218', 8, 'WBTC.e', 'Yield Yak: Yak Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -608,6 +625,7 @@ export const WBTCe: { [chainId in ChainId]: Token } = {
 export const PNG: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'PNG', 'Pangolin'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x60781C2586D68229fde47564546784ab3fACA982', 18, 'PNG', 'Pangolin'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -640,6 +658,7 @@ export const PNG: { [chainId in ChainId]: Token } = {
 export const WETHe: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'WETH.e', 'Wrapped Ethereum'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB', 18, 'WETH.e', 'Wrapped Ethereum'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ethereum'),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -672,6 +691,7 @@ export const WETHe: { [chainId in ChainId]: Token } = {
 export const sAVAX: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'sAVAX', 'Benqi Finance: SAVAX Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE', 18, 'sAVAX', 'Benqi Finance: SAVAX Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -704,6 +724,7 @@ export const sAVAX: { [chainId in ChainId]: Token } = {
 export const ROCO: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'ROCO', 'Roco Finance: ROCO Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xb2a85C5ECea99187A977aC34303b80AcbDdFa208', 18, 'ROCO', 'Roco Finance: ROCO Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -736,6 +757,7 @@ export const ROCO: { [chainId in ChainId]: Token } = {
 export const JPYC: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'JPYC', 'JPY Coin: JPYC Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB', 18, 'JPYC', 'JPY Coin: JPYC Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -768,6 +790,7 @@ export const JPYC: { [chainId in ChainId]: Token } = {
 export const YAY: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'YAY', 'YAY Games: YAY Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x01C2086faCFD7aA38f69A6Bd8C91BEF3BB5adFCa', 18, 'YAY', 'YAY Games: YAY Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
@@ -800,6 +823,7 @@ export const YAY: { [chainId in ChainId]: Token } = {
 export const FITFI: { [chainId in ChainId]: Token } = {
   [ChainId.FUJI]: new Token(ChainId.FUJI, ZERO_ADDRESS, 18, 'FITFI', 'Step App: FITFI Token'),
   [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0x714f020C54cc9D104B6F4f6998C63ce2a31D1888', 18, 'FITFI', 'Step App: FITFI Token'),
+  [ChainId.INKCHAIN_SEPOLIA]: new Token(ChainId.INKCHAIN_SEPOLIA, ZERO_ADDRESS, 0),
   [ChainId.ARBITRUM]: new Token(ChainId.ARBITRUM, ZERO_ADDRESS, 0),
   [ChainId.AURORA]: new Token(ChainId.AURORA, ZERO_ADDRESS, 0),
   [ChainId.BSC]: new Token(ChainId.BSC, ZERO_ADDRESS, 0),
