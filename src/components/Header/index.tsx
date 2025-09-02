@@ -118,19 +118,19 @@ export default function Header() {
         {
           label: (
             <span>
-              Bridge <span>↗</span>
+              Launchpad <span>↗</span>
             </span>
           ),
-          url: isAvalanche ? 'https://core.app/bridge/' : 'https://scroll.io/bridge',
+          url: isAvalanche ? 'https://warp.finance/?chain=mainnet/' : 'https://warp.finance/?chain=base',
           type: 'link',
         },
         {
           label: (
             <span>
-              Pangolin V2 <span>↗</span>
+              WARP Chain <span>↗</span>
             </span>
           ),
-          url: 'http://v2.pangolin.exchange/',
+          url: 'https://warponchain.com/',
           type: 'link',
         },
       ],

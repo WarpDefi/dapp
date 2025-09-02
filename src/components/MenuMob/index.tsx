@@ -100,9 +100,9 @@ export default function MenuMob() {
             </NavLink>
             <a
               className={menuItemClassName}
-              href={chainId === ChainId.AVALANCHE ? 'https://core.app/bridge/' : 'https://scroll.io/bridge'}
+              href={chainId === ChainId.AVALANCHE ? 'https://warp.finance/' : 'https://warp.finance/?chain=base'}
             >
-              Bridge <span>↗</span>
+              Launchpad <span>↗</span>
             </a>
           </div>
         </div>
